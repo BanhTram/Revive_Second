@@ -1,0 +1,24 @@
+<section>
+    <h1>Sua hoc sinh</h1>
+
+    <form action="#">
+        <table class="NoneBorder">
+            <tr class="NoneBorder">
+                <td class="NoneBorder">Ho ten:</td>
+                <td class="NoneBorder">
+                    <input type="text" ng-model="student.name" required>
+                </td>
+            </tr>
+            <tr class="NoneBorder">
+                <td class="NoneBorder">Ngay sinh:</td>
+                <td class="NoneBorder">
+                    <input type="date" ng-model="student.age" required>
+                </td>
+            </tr>
+        </table>
+
+        <button ng-click="saveEditStudent(name, age)">Luu</button>
+
+    </form>
+    
+</section>

@@ -1,0 +1,27 @@
+<section>
+    <h1>Lop</h1>
+
+    <button ng-click="addClass()">Them lop</button>
+
+    <table>
+        <tr>
+            <thead>
+                <td>#</td>
+                <td width="70%">Lop</td>
+                <td>Thao tac</td>
+            </thead>
+        </tr>
+        <tr dir-paginate="class in classes| itemsPerPage:5">
+            <td>{{$index + 1}}</td>
+            <td>{{class.name}}</td>
+            <td class="Interactive">
+                <button ng-click="editClass(class)">Sua</button>
+                <button ng-click="deleteClass(class)">Xoa</button>
+            </td>
+        </tr>
+    </table>
+
+    <dir-pagination-controls class="dir" max-size="5" direction-links="true" boundary-links="true">
+    </dir-pagination-controls>
+
+</section>
