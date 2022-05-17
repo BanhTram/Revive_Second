@@ -1,23 +1,39 @@
 var app = angular.module('myApp', ['ngRoute', 'angularUtils.directives.dirPagination']);
 
 app.controller('myController', function ($scope, $location) {
+    $scope.ListClass = [
+        { id: 200, name: 'Lop 11', parentID: 11, prefix: '', level: 1 },
+        { id: 199, name: 'Lop 11A', parentID: 11, prefix: '__', level: 2 },
+        { id: 189, name: 'Lop 11B', parentID: 11, prefix: '__', level: 2 },
+        { id: 299, name: 'Lop 12A', parentID: 12, prefix: '__', level: 2 },
+        { id: 289, name: 'Lop 12B', parentID: 12, prefix: '__', level: 2 },
+        { id: 179, name: 'Lop 11C', parentID: 11, prefix: '__', level: 2 },
+        { id: 300, name: 'Lop 12', parentID: 12, prefix: '', level: 1 },
+        { id: 288, name: 'Lop 12B', parentID: 12, prefix: '__', level: 2 },
+        { id: 100, name: 'Lop 10', parentID: 10, prefix: '', level: 1 },
+        { id: 189, name: 'Lop 11B1', parentID: 11, prefix: '____', level: 2 },
+        { id: 189, name: 'Lop 11B2', parentID: 11, prefix: '____', level: 2 },
+        { id: 189, name: 'Lop 10B2', parentID: 10, prefix: '____', level: 2 },
+        { id: 189, name: 'Lop 10B1', parentID: 10, prefix: '____', level: 2 },
+    ];
+
     $scope.students = [
-        { name: 'Nam', age: new Date(2004, 01, 01), class: 'lop 10A1' },
-        { name: 'Bede', age: new Date(2006, 01, 01), class: 'lop 10A2' },
-        { name: 'Hoho', age: new Date(2003, 01, 01), class: 'lop 10A2' },
-        { name: 'Kaka', age: new Date(2002, 01, 01), class: 'lop 11A1' },
-        { name: 'Benben', age: new Date(2004, 01, 01), class: 'lop 11A2' },
-        { name: 'Lunu', age: new Date(2006, 01, 01), class: 'lop 12A1' },
-        { name: 'Lpaa', age: new Date(2001, 01, 01), class: 'lop 12A2' }
+        { name: 'Nam', age: new Date(2004, 01, 01), class: 'Lop 10A1' },
+        { name: 'Bede', age: new Date(2006, 01, 01), class: 'Lop 10A2' },
+        { name: 'Hoho', age: new Date(2003, 01, 01), class: 'Lop 10A2' },
+        { name: 'Kaka', age: new Date(2002, 01, 01), class: 'Lop 11A1' },
+        { name: 'Benben', age: new Date(2004, 01, 01), class: 'Lop 11A2' },
+        { name: 'Lunu', age: new Date(2006, 01, 01), class: 'Lop 12A1' },
+        { name: 'Lpaa', age: new Date(2001, 01, 01), class: 'Lop 12A2' }
     ];
 
     $scope.classes = [
-        { name: "lop 10A1", belong: "lop 10" },
-        { name: "lop 10A2", belong: "lop 10" },
-        { name: "lop 11A1", belong: "lop 11" },
-        { name: "lop 11A2", belong: "lop 11" },
-        { name: "lop 12A1", belong: "lop 12" },
-        { name: "lop 12A2", belong: "lop 12" }
+        { name: "Lop 10A1", belong: "Lop 10" },
+        { name: "Lop 10A2", belong: "Lop 10" },
+        { name: "Lop 11A1", belong: "Lop 11" },
+        { name: "Lop 11A2", belong: "Lop 11" },
+        { name: "Lop 12A1", belong: "Lop 12" },
+        { name: "Lop 12A2", belong: "Lop 12" }
     ];
 
     $scope.calculateAge = function (birthdate) {

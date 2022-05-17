@@ -3,9 +3,19 @@
 
     <input type="text" placeholder="Ho ten" ng-model="inputDataSearch.name">
     <input type="number" placeholder="Tuoi" ng-model="inputDataSearch.age">
-    <select ng-model="duLieuVaoNutTimKiem.lop">
-        <option ng-repeat="chonLopHoc in danhSachTimKiemLop">{{chonLopHoc.name}}</option>
+
+    <select>
+        <option ng-repeat="class in ListClass | orderBy: 'name'" ng-if="class.parentID ==  10 ">
+            {{class.prefix}}{{class.name}}
+        </option>
+        <option ng-repeat="class in ListClass | orderBy: 'name'" ng-if="class.parentID ==  11 ">
+            {{class.prefix}}{{class.name}}
+        </option>
+        <option ng-repeat="class in ListClass | orderBy: 'name'" ng-if="class.parentID ==  12 ">
+            {{class.prefix}}{{class.name}}
+        </option>
     </select>
+
     <button ng-click="search()">Tim kiem</button>
 
     <button ng-click="addStudent()">Them hoc sinh</button>
