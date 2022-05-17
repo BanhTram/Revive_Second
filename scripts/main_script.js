@@ -38,7 +38,7 @@ app.controller('myController', function ($scope, $location) {
                     ((tempClass === null || tempClass === undefined) || (tempClass !== null && tempClass !== undefined && student.class.includes(tempClass))) &&
                     ((tempName === null || tempName === undefined) || (tempName !== null && tempName !== undefined && student.name.includes(tempName)));
             }));
-    };  
+    };
 
     $scope.addStudent = function () {
         $location.path('/addStudent');
