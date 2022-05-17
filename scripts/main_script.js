@@ -59,6 +59,11 @@ app.controller('myController', function ($scope, $location) {
 
     $scope.saveEditStudent = function (name, age) {
         if ((name != null || name != undefined) && (age != null || age != undefined)) {
+            var index = $scope.studentDefault.indexOf(name);
+
+            $scope.studentDefault.splice(index, 1);
+            $scope.studentDefault.push({ name: name, age: age, class: '' });
+
             $location.path('/student');
         }
     }
