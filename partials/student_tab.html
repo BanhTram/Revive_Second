@@ -1,17 +1,20 @@
 <section>
     <h1>Hoc sinh</h1>
-
+    
     <input type="text" placeholder="Ho ten" ng-model="inputDataSearch.name">
     <input type="number" placeholder="Tuoi" ng-model="inputDataSearch.age">
 
-    <select>
-        <option ng-repeat="class in ListClass | orderBy: 'name'" ng-if="class.parentID ==  10 ">
+    <select ng-model="inputDataSearch.klass">
+        <option ng-repeat="class in ListClass | orderBy: 'name'" value = "{{class.name}}" ng-show="class.parentID ==  0 ">
             {{class.prefix}}{{class.name}}
         </option>
-        <option ng-repeat="class in ListClass | orderBy: 'name'" ng-if="class.parentID ==  11 ">
+        <option ng-repeat="class in ListClass | orderBy: 'name'" value = "{{class.name}}" ng-show="class.parentID ==  10 ">
             {{class.prefix}}{{class.name}}
         </option>
-        <option ng-repeat="class in ListClass | orderBy: 'name'" ng-if="class.parentID ==  12 ">
+        <option ng-repeat="class in ListClass | orderBy: 'name'" value = "{{class.name}}" ng-show="class.parentID ==  11 ">
+            {{class.prefix}}{{class.name}}
+        </option>
+        <option ng-repeat="class in ListClass | orderBy: 'name'" value = "{{class.name}}" ng-show="class.parentID ==  12 ">
             {{class.prefix}}{{class.name}}
         </option>
     </select>
@@ -31,11 +34,11 @@
             </tr>
         </thead>
         <tbody>
-            <tr dir-paginate="student in students| itemsPerPage:5">
+            <tr dir-paginate="student in studentDefault| itemsPerPage:5">
                 <td>{{$index + 1}}</td>
                 <td class="ColumnStudentName">{{student.name}}</td>
                 <td>{{calculateAge(student.age)}}</td>
-                <td>{{student.class}}</td>
+                <td>{{student.klass}}</td>
                 <td class="Interactive">
                     <button ng-click="editStudent(student)">Sua</button>
                     <button ng-click="deleteStudent(student)">Xoa</button>

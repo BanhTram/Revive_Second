@@ -15,10 +15,45 @@
                     <input type="date" ng-model="student.age" required>
                 </td>
             </tr>
+            <tr class="NoneBorder">
+                <td class="NoneBorder">Lop:</td>
+                <td class="NoneBorder">
+                    <select ng-model="student.klass" required>
+
+                        <option value=""></option>
+
+                        <option ng-repeat="class in ListClass | orderBy: 'name'" value="{{class.name}}"
+                            ng-if="class.parentID ==  0 ">
+                            {{class.prefix}}{{class.name}}
+                        </option>
+
+                        <option ng-repeat="class in ListClass | orderBy: 'name'" value="{{class.name}}"
+                            ng-if="class.parentID ==  10 ">
+                            {{class.prefix}}{{class.name}}
+                        </option>
+
+                        <option ng-repeat="class in ListClass | orderBy: 'name'" value="{{class.name}}"
+                            ng-if="class.parentID ==  11 ">
+                            {{class.prefix}}{{class.name}}
+                        </option>
+
+                        <option ng-repeat="class in ListClass | orderBy: 'name'" value="{{class.name}}"
+                            ng-if="class.parentID ==  12 ">
+                            {{class.prefix}}{{class.name}}
+                        </option>
+
+                    </select>
+                </td>
+
+            </tr>
+
+            </td>
+            </tr>
+
         </table>
 
-        <button ng-click="saveEditStudent(student.name, student.age)">Luu</button>
+        <button type="submit" ng-click="saveEditStudent(student.name, student.age, student.klass)">Luu</button>
 
     </form>
-    
+
 </section>
