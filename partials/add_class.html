@@ -2,11 +2,43 @@
     <h1>Them lop</h1>
 
     <form action="#">
-        <table class="NoneBorder"> 
+        <table class="NoneBorder">
             <tr class="NoneBorder">
                 <td class="NoneBorder">Ten lop:</td>
                 <td class="NoneBorder">
                     <input type="text" ng-model="name" placeholder="Ten lop" required>
+                </td>
+            </tr>
+            <tr class="NoneBorder">
+                <td class="NoneBorder">Lop:</td>
+                <td class="NoneBorder">
+
+                    <select ng-model="klass" required>
+
+                        <option value=""></option>
+
+                        <option ng-repeat="class in ListClass | orderBy: 'name'" value="{{class.name}}"
+                            ng-if="class.parentID ==  0 ">
+                            {{class.prefix}}{{class.name}}
+                        </option>
+
+                        <option ng-repeat="class in ListClass | orderBy: 'name'" value="{{class.name}}"
+                            ng-if="class.parentID ==  10 ">
+                            {{class.prefix}}{{class.name}}
+                        </option>
+
+                        <option ng-repeat="class in ListClass | orderBy: 'name'" value="{{class.name}}"
+                            ng-if="class.parentID ==  11 ">
+                            {{class.prefix}}{{class.name}}
+                        </option>
+
+                        <option ng-repeat="class in ListClass | orderBy: 'name'" value="{{class.name}}"
+                            ng-if="class.parentID ==  12 ">
+                            {{class.prefix}}{{class.name}}
+                        </option>
+
+                    </select>
+
                 </td>
             </tr>
         </table>

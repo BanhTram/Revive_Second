@@ -47,12 +47,12 @@ app.controller('myController', function ($scope, $location) {
     $scope.search = function () {
         var tempName = $scope.inputDataSearch.name;
         var tempAge = $scope.inputDataSearch.age;
-        var tempClass = $scope.inputDataSearch.klass;
+        var tempKlass = $scope.inputDataSearch.klass;
 
         $scope.students = angular.copy(_.filter($scope.studentDefault,
             function (student) {
                 return ((tempAge === null || tempAge === undefined) || (tempAge !== null && tempAge !== undefined && $scope.calculateAge(student.age) == tempAge)) &&
-                    ((tempClass === null || tempClass === undefined) || (tempClass !== null && tempClass !== undefined && student.klass.includes(tempClass))) &&
+                    ((tempKlass === null || tempKlass === undefined) || (tempKlass !== null && tempKlass !== undefined && student.klass.includes(tempKlass))) &&
                     ((tempName === null || tempName === undefined) || (tempName !== null && tempName !== undefined && student.name.includes(tempName)));
             }));
     };
@@ -68,6 +68,7 @@ app.controller('myController', function ($scope, $location) {
         (klass != null || klass != undefined)
         ) {
             var tempStudent = {name: name, age: $scope.calculateAge(age), klass: klass};
+            
             $scope.students.push(tempStudent);
             $scope.studentDefault.push(tempStudent);
             
@@ -92,9 +93,11 @@ app.controller('myController', function ($scope, $location) {
         }
     }
 
-    $scope.deleteStudent = function (studentDefault) {
-        var index = $scope.studentDefault.indexOf(studentDefault);
-        $scope.studentDefault.splice(index, 1);
+    $scope.deleteStudent = function (students) {
+        var index = $scope.students.indexOf(students);
+        
+        $scope.students.splice(index, 1);
+        $scope.studentDefault = $scope.students.slice();
     }
 
     // $scope.addClass = function () {

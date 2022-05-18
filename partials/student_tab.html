@@ -34,7 +34,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr dir-paginate="student in studentDefault| itemsPerPage:5">
+            <tr dir-paginate="student in students| itemsPerPage:5">
                 <td>{{$index + 1}}</td>
                 <td class="ColumnStudentName">{{student.name}}</td>
                 <td>{{calculateAge(student.age)}}</td>
